@@ -73,8 +73,8 @@ sa-token:
 
 
 wechat:
-  app-id: 你的微信小程序APPID
-  app-secret: 你的微信小程序密钥
+  app-id: wx539efd2e45d79197
+  app-secret: 472e3da84b0dc3613d9b569de84b82c6
   pay:
     v3:
       patient-wx-api:
@@ -86,15 +86,15 @@ wechat:
 
 tencent:
   cloud:
-    appId: 你的腾讯云APPID
-    secretId: 你的腾讯云secretId
-    secretKey: 你的腾讯云secretKey
+    appId: 86400
+    secretId: 86400
+    secretKey: 86400
     face:
       groupName: hospital
       region: ap-beijing
   trtc:
-    appId: TRTC的appId
-    secretKey: TRTC的secretKey
+    appId: 86400
+    secretKey: 86400
     expire: 86400
 
 minio:
