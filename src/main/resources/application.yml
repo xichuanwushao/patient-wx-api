@@ -98,7 +98,7 @@ tencent:
     expire: 86400
 
 minio:
-  endpoint: http://Minio服务器地址:9000
+  endpoint: http://192.168.3.151:9000
   access-key: root
-  secret-key: abc123456
+  secret-key: 888816280
 
