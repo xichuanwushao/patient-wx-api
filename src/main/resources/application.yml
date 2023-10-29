@@ -12,7 +12,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.apache.phoenix.queryserver.client.Driver
-    url: jdbc:phoenix:thin:url=http://phoenix的IP地址:8765;serialization=PROTOBUF
+    url: jdbc:phoenix:thin:url=http://192.168.3.151:8765;serialization=PROTOBUF
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       test-on-borrow: true
