@@ -6,5 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashMap;
 
 public interface UserDao {
-    
+    public int insert(UserEntity entity);
+
+    public Integer searchAlreadyRegistered(String openId);
 }

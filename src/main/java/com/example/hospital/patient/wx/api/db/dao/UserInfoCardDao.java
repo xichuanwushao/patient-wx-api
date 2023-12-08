@@ -6,5 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public interface UserInfoCardDao {
-    
+    public String searchUserTel(int userId);
+
 }
