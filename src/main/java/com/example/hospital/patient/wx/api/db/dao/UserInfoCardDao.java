@@ -7,5 +7,5 @@ import java.util.Map;
 
 public interface UserInfoCardDao {
     public String searchUserTel(int userId);
-
+    public void insert(UserInfoCardEntity entity);
 }
