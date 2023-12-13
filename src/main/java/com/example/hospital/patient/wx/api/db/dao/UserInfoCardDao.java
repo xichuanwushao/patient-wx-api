@@ -8,4 +8,7 @@ import java.util.Map;
 public interface UserInfoCardDao {
     public String searchUserTel(int userId);
     public void insert(UserInfoCardEntity entity);
+
+    public HashMap searchUserInfoCard(int userId);
+    public int update(UserInfoCardEntity entity);
 }
