@@ -26,8 +26,6 @@ spring:
     url: jdbc:phoenix:172.16.6.0:2181:/hbase
     username: none
     password: none
-    connection-properties: phoenix.schema.isNamespaceMappingEnabled=true
-    connectionProperties:  phoenix.schema.isNamespaceMappingEnabled=true
   type: com.zaxxer.hikari.HikariDataSource
   hikari:
     # 池中维护的最小空闲连接数
