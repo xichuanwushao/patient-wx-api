@@ -9,4 +9,7 @@ public interface UserDao {
     public int insert(UserEntity entity);
 
     public Integer searchAlreadyRegistered(String openId);
+
+    public HashMap searchUserInfo( int userId);
+
 }

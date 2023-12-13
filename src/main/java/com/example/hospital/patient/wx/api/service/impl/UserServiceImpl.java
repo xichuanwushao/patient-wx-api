@@ -75,4 +75,12 @@ public class UserServiceImpl implements UserService {
         }
         return openId;
     }
+    @Override
+    public HashMap searchUserInfo(int userId) {
+        HashMap map = userDao.searchUserInfo(userId);
+        String tel = userInfoCardDao.searchUserTel(userId);
+        map.put("tel", tel);
+        return map;
+    }
+
 }

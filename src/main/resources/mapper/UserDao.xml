@@ -15,4 +15,11 @@
         WHERE "open_id" = #{openId}
         LIMIT 1
         </select>
+
+    <select id="searchUserInfo" parameterType="int" resultType="HashMap">
+        SELECT "nickname", "sex" , "photo"
+        FROM HOSPITAL.PATIENT_USER
+        WHERE "id"= ${userId}
+    </select>
+
 </mapper>
