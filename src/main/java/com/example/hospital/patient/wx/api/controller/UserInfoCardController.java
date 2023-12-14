@@ -11,10 +11,7 @@ import com.example.hospital.patient.wx.api.db.pojo.UserInfoCardEntity;
 import com.example.hospital.patient.wx.api.form.InsertUserInfoCardForm;
 import com.example.hospital.patient.wx.api.form.UpdateUserInfoCardForm;
 import com.example.hospital.patient.wx.api.service.UserInfoCardService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -43,6 +40,7 @@ public class UserInfoCardController {
     }
 
     @SaCheckLogin
+    @GetMapping("/searchUserInfoCard")
     public R searchUserInfoCard() {
         int userId = StpUtil.getLoginIdAsInt();
         HashMap map = userInfoCardService.searchUserInfoCard(userId);
