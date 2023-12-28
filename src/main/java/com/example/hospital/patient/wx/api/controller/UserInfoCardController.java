@@ -59,5 +59,12 @@ public class UserInfoCardController {
         userInfoCardService.update(entity);
         return R.ok();
     }
+    @GetMapping("/hasUserInfoCard")
+    @SaCheckLogin
+    public R hasUserInfoCard() {
+        int userId = StpUtil.getLoginIdAsInt();
+        boolean bool = userInfoCardService.hasUserInfoCard(userId);
+        return R.ok().put("result", bool);
+    }
 
 }
