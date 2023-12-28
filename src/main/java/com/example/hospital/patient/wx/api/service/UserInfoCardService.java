@@ -14,4 +14,6 @@ public interface UserInfoCardService {
 
     public HashMap searchUserInfoCard(int userId);
     public void update(UserInfoCardEntity entity);
+
+    public boolean hasUserInfoCard(int userId);
 }
