@@ -40,4 +40,11 @@
      )
 </update>
 
+    <select id="hasUserInfoCard" parameterType="int" resultType="Integer">
+        SELECT "id"
+        FROM HOSPITAL.PATIENT_USER_INFO_CARD
+        WHERE "user_id" = ${userId}
+            LIMIT 1
+    </select>
+
 </mapper>

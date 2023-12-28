@@ -11,4 +11,6 @@ public interface UserInfoCardDao {
 
     public HashMap searchUserInfoCard(int userId);
     public int update(UserInfoCardEntity entity);
+
+    public Integer hasUserInfoCard(int userId);
 }
