@@ -12,7 +12,7 @@ server:
 #spring:
 #  datasource:
 #    driver-class-name: org.apache.phoenix.queryserver.client.Driver
-#    url: jdbc:phoenix:thin:url=http://192.168.137.210:8765;serialization=PROTOBUF
+#    url: jdbc:phoenix:thin:url=http://192.168.124.199:8765;serialization=PROTOBUF
 #    type: com.alibaba.druid.pool.DruidDataSource
 #    druid:
 #      test-on-borrow: true
@@ -23,7 +23,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.apache.phoenix.jdbc.PhoenixDriver
-    url: jdbc:phoenix:192.168.137.210:2181:/hbase
+    url: jdbc:phoenix:192.168.124.199:2181:/hbase
     username: none
     password: none
   type: com.zaxxer.hikari.HikariDataSource
@@ -52,7 +52,7 @@ spring:
 
   redis:
     database: 0
-    host: 192.168.137.210
+    host: 192.168.124.199
     port: 6379
     password: 888816280
     jedis:
@@ -121,7 +121,7 @@ tencent:
     expire: 86400
 
 minio:
-  endpoint: http://192.168.137.210:9000
+  endpoint: http://192.168.124.199:9000
   access-key: root
   secret-key: 888816280
 
