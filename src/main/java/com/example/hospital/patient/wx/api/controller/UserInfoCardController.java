@@ -8,8 +8,8 @@ import cn.hutool.core.util.IdUtil;
 import cn.hutool.json.JSONUtil;
 import com.example.hospital.patient.wx.api.common.R;
 import com.example.hospital.patient.wx.api.db.pojo.UserInfoCardEntity;
-import com.example.hospital.patient.wx.api.form.InsertUserInfoCardForm;
-import com.example.hospital.patient.wx.api.form.UpdateUserInfoCardForm;
+import com.example.hospital.patient.wx.api.controller.form.InsertUserInfoCardForm;
+import com.example.hospital.patient.wx.api.controller.form.UpdateUserInfoCardForm;
 import com.example.hospital.patient.wx.api.service.UserInfoCardService;
 import org.springframework.web.bind.annotation.*;
 

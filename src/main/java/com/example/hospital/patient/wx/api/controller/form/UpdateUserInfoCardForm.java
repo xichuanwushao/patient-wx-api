@@ -1,4 +1,4 @@
-package com.example.hospital.patient.wx.api.form;
+package com.example.hospital.patient.wx.api.controller.form;
 
 import lombok.Data;
 

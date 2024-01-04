@@ -4,7 +4,7 @@ import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.map.MapUtil;
 import com.example.hospital.patient.wx.api.common.R;
-import com.example.hospital.patient.wx.api.form.LoginOrRegisterForm;
+import com.example.hospital.patient.wx.api.controller.form.LoginOrRegisterForm;
 import com.example.hospital.patient.wx.api.service.UserService;
 import org.springframework.web.bind.annotation.*;
 

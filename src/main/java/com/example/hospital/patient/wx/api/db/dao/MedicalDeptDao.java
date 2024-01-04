@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public interface MedicalDeptDao {
-
+    public ArrayList<HashMap> searchMedicalDeptList(Map param);
 }
 
 
