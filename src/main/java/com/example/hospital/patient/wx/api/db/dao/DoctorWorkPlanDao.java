@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public interface DoctorWorkPlanDao {
-   
+    public ArrayList<String> searchCanRegisterInDateRange(Map param);
+    public ArrayList<HashMap> searchDeptSubDoctorPlanInDay(Map param);
 }
 
 
