@@ -4,7 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.hospital.patient.wx.api.db.dao.DoctorWorkPlanDao">
     <select id="searchCanRegisterInDateRange" parameterType="Map" resultType="String">
-        SELECT DISTINCT "date"
+        SELECT DISTINCT
+            TO_CHAR("date", 'yyyy-MM-dd HH:mm:ss') AS "date"
         FROM HOSPITAL.DOCTOR_WORK_PLAN
         WHERE "dept_sub_id" = ${deptSubId}
           AND "date" BETWEEN TO_DATE('${startDate}') AND TO_DATE('${endDate}')

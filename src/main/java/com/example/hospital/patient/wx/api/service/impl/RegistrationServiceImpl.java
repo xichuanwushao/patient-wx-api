@@ -31,7 +31,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         DateRange range = DateUtil.range(startDate, endDate, DateField.DAY_OF_MONTH);
         ArrayList result = new ArrayList();
         while (range.hasNext()) {
-            String date = range.next().toDateStr();
+            String date = range.next().toString("yyyy-MM-dd HH:mm:ss");
             if (list.contains(date)) {
                 result.add(new HashMap() {{
                     put("date", date);
