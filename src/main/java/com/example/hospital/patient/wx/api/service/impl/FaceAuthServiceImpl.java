@@ -1,16 +1,17 @@
 package com.example.hospital.patient.wx.api.service.impl;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
 import com.example.hospital.patient.wx.api.db.dao.FaceAuthDao;
 import com.example.hospital.patient.wx.api.db.dao.UserInfoCardDao;
+import com.example.hospital.patient.wx.api.db.pojo.FaceAuthEntity;
 import com.example.hospital.patient.wx.api.exception.HospitalException;
 import com.example.hospital.patient.wx.api.service.FaceAuthService;
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.iai.v20180301.IaiClient;
-import com.tencentcloudapi.iai.v20180301.models.CreatePersonRequest;
-import com.tencentcloudapi.iai.v20180301.models.CreatePersonResponse;
+import com.tencentcloudapi.iai.v20180301.models.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -82,4 +83,48 @@ public class FaceAuthServiceImpl implements FaceAuthService {
             throw new HospitalException(e);
         }
     }
+
+
+
+
+
+        @Override
+        @Transactional
+        public boolean verifyFaceModel(int userId, String photo) {
+            try {
+                Credential cred = new Credential(secretId, secretKey);
+                IaiClient client = new IaiClient(cred, region);
+                //执行人脸识别
+                VerifyPersonRequest verifyPersonRequest = new VerifyPersonRequest();
+                verifyPersonRequest.setPersonId(userId + "");
+                verifyPersonRequest.setImage(photo);
+                verifyPersonRequest.setQualityControl(4L);
+                VerifyPersonResponse verifyPersonResponse = client.VerifyPerson(verifyPersonRequest);
+                boolean bool_1 = verifyPersonResponse.getIsMatch();
+                if (!bool_1) {
+                    return bool_1;
+                }
+                //利用腾讯云执行静态活体检测
+                DetectLiveFaceRequest detectLiveFaceRequest = new DetectLiveFaceRequest();
+                detectLiveFaceRequest.setImage(photo);
+                DetectLiveFaceResponse detectLiveFaceResponse = client.DetectLiveFace(detectLiveFaceRequest);
+                boolean bool_2 = detectLiveFaceResponse.getIsLiveness();
+                //合并人脸识别和活体识别的结果
+                boolean bool = bool_1 && bool_2;
+
+                //如果身份验证通过，就写入数据库
+                if (bool) {
+                    Integer cardId = userInfoCardDao.searchIdByUserId(userId);
+                    FaceAuthEntity entity = new FaceAuthEntity();
+                    entity.setPatientCardId(cardId);
+                    entity.setDate(DateUtil.today());
+                    faceAuthDao.insert(entity);
+                }
+                return bool;
+            }
+            catch (TencentCloudSDKException e) {
+                log.error("人脸验证失败", e);
+                return false;
+            }
+        }
 }

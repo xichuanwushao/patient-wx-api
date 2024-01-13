@@ -10,4 +10,7 @@ public interface FaceAuthService {
     public boolean hasFaceAuthInDay(Map param);
 
     public void createFaceModel(Map param);
+
+    public boolean verifyFaceModel(int userId, String photo);
+
 }
