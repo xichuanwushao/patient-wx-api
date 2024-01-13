@@ -11,6 +11,13 @@
           AND a."date" = TO_DATE('${today}')
             LIMIT 1
     </select>
-
+    <insert id="insert" parameterType="com.example.hospital.patient.wx.api.db.pojo.FaceAuthEntity">
+        UPSERT INTO HOSPITAL.PATIENT_FACE_AUTH(
+         "id", "patient_card_id", "date"
+         )
+         VALUES(
+         NEXT VALUE FOR HOSPITAL.PATIENT_FACE_AUTH_SEQUENCE, ${patientCardId} , TO_DATE('${date}')
+        )
+    </insert>
 
 </mapper>
