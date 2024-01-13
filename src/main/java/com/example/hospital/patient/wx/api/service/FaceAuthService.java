@@ -8,4 +8,6 @@ import java.util.Map;
  */
 public interface FaceAuthService {
     public boolean hasFaceAuthInDay(Map param);
+
+    public void createFaceModel(Map param);
 }
