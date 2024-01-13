@@ -15,4 +15,6 @@ public interface UserInfoCardDao {
     public Integer hasUserInfoCard(int userId);
 
     public Boolean searchExistFaceModel(int userId);
+
+    public void updateExistFaceModel(Map param);
 }

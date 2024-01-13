@@ -6,6 +6,8 @@ import java.util.Map;
 
 public interface FaceAuthDao {
     public Integer hasFaceAuthInDay(Map param);
+
+    public void createFaceModel(Map param);
 }
 
 
