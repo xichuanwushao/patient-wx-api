@@ -8,7 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public interface MedicalRegistrationDao {
-    
+
+    public long searchRegistrationCountInToday(Map param);
+    public Integer hasRegisterRecordInDay(Map param);
 
 }
 

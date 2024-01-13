@@ -13,4 +13,6 @@ public interface UserInfoCardDao {
     public int update(UserInfoCardEntity entity);
 
     public Integer hasUserInfoCard(int userId);
+
+    public Boolean searchExistFaceModel(int userId);
 }
