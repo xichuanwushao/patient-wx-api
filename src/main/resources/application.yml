@@ -109,9 +109,9 @@ wechat:
 
 tencent:
   cloud:
-    appId: 86400
-    secretId: 86400
-    secretKey: 86400
+    appId: 1304556315
+    secretId: AKIDKWYP6dzwjQxNcrwpW5UtR2Xs11qWD4v1
+    secretKey: ENXhqNn44tmrTUm1DHHIKTZjDxjcb9nj
     face:
       groupName: hospital
       region: ap-beijing
