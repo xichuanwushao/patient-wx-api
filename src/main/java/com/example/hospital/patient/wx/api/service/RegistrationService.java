@@ -11,4 +11,6 @@ import java.util.Map;
 public interface RegistrationService {
     public ArrayList<String> searchCanRegisterInDateRange(Map param);
     public ArrayList<HashMap> searchDeptSubDoctorPlanInDay(Map param);
+
+    public String checkRegisterCondition(Map param);
 }
