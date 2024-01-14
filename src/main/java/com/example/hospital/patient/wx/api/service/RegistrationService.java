@@ -13,4 +13,6 @@ public interface RegistrationService {
     public ArrayList<HashMap> searchDeptSubDoctorPlanInDay(Map param);
 
     public String checkRegisterCondition(Map param);
+
+    public ArrayList<HashMap> searchDoctorWorkPlanSchedule(Map param);
 }

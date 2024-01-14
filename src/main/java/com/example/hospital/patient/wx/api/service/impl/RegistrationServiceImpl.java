@@ -6,6 +6,7 @@ import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.map.MapUtil;
 import com.example.hospital.patient.wx.api.db.dao.DoctorWorkPlanDao;
+import com.example.hospital.patient.wx.api.db.dao.DoctorWorkPlanScheduleDao;
 import com.example.hospital.patient.wx.api.db.dao.MedicalRegistrationDao;
 import com.example.hospital.patient.wx.api.db.dao.UserInfoCardDao;
 import com.example.hospital.patient.wx.api.service.FaceAuthService;
@@ -31,6 +32,10 @@ public class RegistrationServiceImpl implements RegistrationService {
     private FaceAuthService faceAuthService;
     @Resource
     private DoctorWorkPlanDao doctorWorkPlanDao;
+
+    @Resource
+    private DoctorWorkPlanScheduleDao doctorWorkPlanScheduleDao;
+
     @Override
     public ArrayList<String> searchCanRegisterInDateRange(Map param) {
         ArrayList<String> list = doctorWorkPlanDao.searchCanRegisterInDateRange(param);
@@ -86,5 +91,13 @@ public class RegistrationServiceImpl implements RegistrationService {
         }
         return "满足挂号条件";
     }
+
+
+    @Override
+    public ArrayList<HashMap> searchDoctorWorkPlanSchedule(Map param) {
+        ArrayList<HashMap> list = doctorWorkPlanScheduleDao.searchDoctorWorkPlanSchedule(param);
+        return list;
+    }
+
 
 }
