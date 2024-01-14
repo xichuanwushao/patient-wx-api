@@ -7,6 +7,7 @@ import com.example.hospital.patient.wx.api.common.R;
 import com.example.hospital.patient.wx.api.controller.form.CheckRegisterConditionForm;
 import com.example.hospital.patient.wx.api.controller.form.SearchCanRegisterInDateRangeForm;
 import com.example.hospital.patient.wx.api.controller.form.SearchDeptSubDoctorPlanInDayForm;
+import com.example.hospital.patient.wx.api.controller.form.SearchDoctorWorkPlanScheduleForm;
 import com.example.hospital.patient.wx.api.service.RegistrationService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,6 +54,15 @@ public class RegistrationController {
         Map param = BeanUtil.beanToMap(form);
         String result = registrationService.checkRegisterCondition(param);
         return R.ok().put("result", result);
+    }
+
+
+    @PostMapping("/searchDoctorWorkPlanSchedule")
+    @SaCheckLogin
+    public R searchDoctorWorkPlanSchedule(@RequestBody @Valid SearchDoctorWorkPlanScheduleForm form){
+        Map param = BeanUtil.beanToMap(form);
+        ArrayList<HashMap> list = registrationService.searchDoctorWorkPlanSchedule(param);
+        return R.ok().put("result", list);
     }
 
 }
